@@ -1,0 +1,478 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Estilos trabajo en equipo</title>
+	<style type="text/css">
+		#content {
+		    width: 1200px;
+		    margin: 0px auto;
+		}
+
+		#column-left {
+		    background-color: #EBE9EA;
+		    border: 1px solid #D2D2D2;
+		    border-radius: 8px 8px 8px 8px;
+		    float: left;
+		    position: fixed;
+		    min-height: 225px;
+		    margin-bottom: 10px;
+		    margin-right: 10px;
+		    overflow: hidden;
+		    text-align: center;
+		    width: 200px;
+		}
+
+		#central {
+		    background-color: #EBE9EA;
+		    border: 1px solid #D2D2D2;
+		    border-radius: 8px 8px 8px 8px;
+		    float: right;
+            height: auto;
+		    margin-bottom: 10px;
+		    width: 985px;
+		}
+	</style>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>                   
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    </head>
+    <body>
+    <div class="container-fluid text-center">    
+      <p>Usted tiene una cantidad de 48 puntos para poder llenar el formulario, cuando el puntaje llege a 0 usted ya no podra agregar mas puntos</p> </br> 
+      <p>Este cuestionario ayuda a descubrir su papel y estilo de trabajo en equipo. Para asignarle un papel dentro del equipo</p>  </br>
+      <p> Selecione</p></br>
+      <ul>
+          <li>2 para indicar Frecuentemente</li>
+          <li>1 para indicar A veces</li>
+          <li>0 para indicar Rara vez</li>
+      </ul>
+    </div>
+    <section id="formulario">
+        <div id="content">
+            <div id="column-left">            
+                <p> Puntos restantes es  {{48-puntosEscogidos()}} </p>  
+            </div>
+            <div id="central">
+                <div class="container">
+                    <form  name="formularioRellenar"  method = "POST"
+                    action = "https://docs.google.com/forms/d/1KumOUVRyHAO0-J1xiAHtKIKELlHn4CwIXoWCkqHw6SQ"
+                    onsubmit = "return window.submitGoogleForm(this);" >
+                        <div class="form-group">
+                            <label>Correo</label>
+                            <input type="mail" name="entry.854608979" jsname="L9xHkb" required> 
+                        </div>      
+                        <div class="form-group">
+                            <label>Grupo</label>
+                            <input type="text" required="required"  name="entry.796960751" >
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre</label>   
+                            <input type="text" required="required" name="entry.1601546424"  data-live-search="true">
+                        </div>
+                        <div class="form-group">
+                            <label>1. Estoy dispuesto a hacer un esfuerzo para animar al equipo.</label>
+                            <select required="required" name="entry.508783221"  v-model="selected[0]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>2. Tiendo a impacientarme con la gente que no \"va al grano\".</label>
+                                    <select required="required" name="entry.179258154"  v-model="selected[1]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>3. Insto al grupo a acatar los horarios, mantener los planes y plazos establecidos</label>
+                            <select required="required" name="entry.1550598216"  v-model="selected[2]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>4. Cuando se presentan diferentes opciones dentro del equipo, fomento la discusión para llegar a consenso.</label>
+                            <select required="required" name="entry.2088090770"  v-model="selected[3]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>5. Se puede contar conmigo a la hora de aportar ideas originales.</label>
+                            <select required="required" name="entry.1687459845"  v-model="selected[4]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>6. Utilizo el humor para aliviar tensiones y mantener buenas relaciones.</label>
+                            <select required="required" name="entry.657907906"  v-model="selected[5]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>7. Antes de tomar decisiones busco llegar a un consenso.</label>
+                            <select required="required" name="entry.2083005987"  v-model="selected[6]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>8. Escucho atentamente lo que otros dicen.</label>
+                            <select required="required" name="entry.250948256"  v-model="selected[7]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>9. Evito entrar en conflictos.</label>
+                            <select required="required" name="entry.438679450"  v-model="selected[8]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>10. Enseguida capto los fallos de las ideas que se exponen.</label>
+                            <select required="required" name="entry.944802393"  v-model="selected[9]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>11. Comunico abiertamente las razones de una situación.</label>
+                            <select required="required" name="entry.2033442414"  v-model="selected[10]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>12. Siempre estoy dispuesto a apoyar una buena sugerencia por el bien común del equipo.</label>
+                            <select required="required" name="entry.1204812659"  v-model="selected[11]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>13. Tiendo a exponer muchas ideas.</label>
+                            <select required="required" name="entry.371560631"  v-model="selected[12]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>14. Apoyo a la gente cuando creo que tiene algo que aportar.</label>
+                            <select required="required" name="entry.1005156155"  v-model="selected[13]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>15. Cuando las cosas no progresan adecuadamente, actúo y realizo el trabajo.</label>
+                            <select required="required" name="entry.1756606707"  v-model="selected[14]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>16. Desarrollo las ideas de los demás e intento mejorarlas.</label>
+                            <select required="required" name="entry.2051850519"  v-model="selected[15]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>17. Tiendo a cambiar de idea cuando escucho los puntos de vista de los demás.</label>
+                            <select required="required" name="entry.479089538"  v-model="selected[16]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>18. Tiendo a buscar la aprobación y el apoyo de los demás.</label>
+                            <select required="required" name="entry.432117458"  v-model="selected[17]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>19. No me importa ser impopular si cumplo con el trabajo.</label>
+                            <select required="required" name="entry.960689560"  v-model="selected[18]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>20. Busco activamente las ideas y opiniones de los demás.\</label>
+                            <select required="required" name="entry.1891654549"  v-model="selected[19]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>21. Soy una persona cordial y me resulta fácil entablar buenas relaciones.</label>
+                            <select required="required" name="entry.1520886665"  v-model="selected[20]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>22. Tengo cuidado en no llegar a conclusiones precipitadas.</label>
+                            <select required="required" name="entry.1879085577"  v-model="selected[21]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>23. Tengo facilidad para conocer cuando algún miembro del equipo está afligido o enfadado.</label>
+                            <select required="required" name="entry.1555895506"  v-model="selected[22]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>24. Disfruto analizando las situaciones y considerando sus alternativas.</label>
+                            <select required="required" name="entry.644567569"  v-model="selected[23]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>25. Puedo trabajar bien con casi todo el mundo.</label>
+                            <select required="required" name="entry.1897155851"  v-model="selected[24]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>26. Tengo fama de tener un estilo serio.</label>
+                            <select required="required" name="entry.1349462749"  v-model="selected[25]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>27. Me gusta sentir que fomento las buenas relaciones laborales.</label>
+                            <select required="required" name="entry.1031544897"  v-model="selected[26]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>28. Tiendo a ser dinámico y enérgico.</label>
+                            <select required="required" name="entry.1303454400"  v-model="selected[27]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>29. Me gusta anticiparme a las dificultades y estar preparado para afrontarlas.\</label>
+                            <select required="required" name="entry.1791767706"  v-model="selected[28]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>30. Presiono para que se actúe y me aseguro de que la gente no pierda el tiempo o dé demasiadas vueltas a las cosas.</label>
+                            <select required="required" name="entry.1505560841"  v-model="selected[29]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>31. A la hora de actuar, generalmente consigo que la gente se ponga de acuerdo.</label>
+                            <select required="required" name="entry.1339762557"  v-model="selected[30]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>32. Cuando la gente comienza a dudar, apremio a seguir con la tarea asignada.</label>
+                            <select required="required" name="entry.264986184"  v-model="selected[31]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>33. Me gusta ponderar las alternativas antes de tomar una decisión.</label>
+                            <select required="required" name="entry.597233931"  v-model="selected[32]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>34. En lo referente a mis sentimientos, suelo ser abierto.</label>
+                            <select required="required" name="entry.11016565"  v-model="selected[33]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>35. La gente piensa de mí que, a veces, soy demasiado analítico o cauteloso.</label>
+                            <select required="required" name="entry.1134676834"  v-model="selected[34]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>36. En las discusiones me gusta \"ir siempre al grano\"</label>
+                            <select required="required" name="entry.27298259"  v-model="selected[35]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>37. Aunque me interesan todos los puntos de vista, no dudo en decidirme cuando hay que tomar una decisión.</label>
+                            <select required="required" name="entry.1927611743"  v-model="selected[36]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>38. La gente que no se toma las cosas en serio tiende a irritarme.</label>
+                            <select required="required" name="entry.376282180"  v-model="selected[37]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>39. Soy capaz de influir en los demás sin ejercer presión sobre ellos.</label>
+                            <select required="required" name="entry.1193645649"  v-model="selected[38]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>40. Me gusta pensar bien las cosas antes de hacerlas.</label>
+                            <select required="required" name="entry.198580367"  v-model="selected[39]">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                        <div v-show="activarEnvio()"> 
+                            <button v-on:click="redirecionar()" class="btn-success" type="submit" > Enviar Respuesta </button>
+                        </div>  
+                    </form>    
+                </div>
+            </div>   
+    </section>     
+<script>
+    // formulario.getElementsByTagName("select")[2].value
+    var formularioVue = new Vue({
+        el: "#formulario",
+        data: {
+            selected:[]
+        },
+        methods: {
+            puntosEscogidos: function(){
+                let selected = this.selected
+                .map(number=>parseInt(number))
+                .filter(number=>typeof(number)=="number")
+                return  selected.length >0 ?selected.reduce((numberAtfer,numberBefore) => numberAtfer+numberBefore):0
+            },
+            activarEnvio:function(){
+                let respuesta = 48 -this.puntosEscogidos()
+                let conclucion = false
+                if(respuesta < 0){alert("A superado el limite de sus puntos, escoga valores menores, le quedan "+respuesta+" puntos");
+                    conclucion = false
+                }else if(respuesta  === 0) {
+                     conclucion =true
+                }else if(respuesta >0){
+                    conclucion = false
+                }
+                return conclucion
+            },
+            redirecionar:function(){
+                let datosRellenados = []
+                for(let dato = 0; dato < formularioRellenar.length;dato++ ){
+                    datosRellenados.push(formularioRellenar[dato].value)
+                }
+                let rellenados  = datosRellenados.filter(dato => dato.length > 0)
+                if(rellenados.length === 43){
+                    location.href ="http://scielo.sld.cu/scielo.php?script=sci_arttext&pid=S1024-94352003000600011";
+                }else{
+                    alert("Faltan campos por rellenar")
+                }
+            }
+
+        }
+    }) 
+
+</script>
+<script >
+    !function(exports) {
+        exports.submitGoogleForm = submitGoogleForm;
+
+        function submitGoogleForm(form) {
+        try {
+            var data = [].slice.call(form).map(function(control) {
+            return 'value' in control && control.name ?
+                control.name + '=' + (control.value === undefined ? '' : control.value) :
+                '';
+            }).join('&');
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', form.action + '/formResponse', true);
+            xhr.setRequestHeader('Accept',
+                'application/xml, text/xml, */*; q=0.01');
+            xhr.setRequestHeader('Content-type',
+                'application/x-www-form-urlencoded; charset=UTF-8');
+            xhr.send(data);
+        } catch(e) {}
+
+        form.parentNode.className += ' submitted';
+
+        return false;
+        }
+    }(typeof module === 'undefined' ? window : module.exports);
+</script>
+</body>
+</html>
