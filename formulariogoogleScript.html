@@ -1,0 +1,397 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Estilos trabajo en equipo</title>
+        <style type="text/css">
+            #content {
+                width: 1200px;
+                margin: 0px auto;
+            }
+
+            #column-left {
+                background-color: #EBE9EA;
+                border: 1px solid #D2D2D2;
+                border-radius: 8px 8px 8px 8px;
+                float: left;
+                position: fixed;
+                min-height: 225px;
+                margin-bottom: 10px;
+                margin-right: 10px;
+                overflow: hidden;
+                text-align: center;
+                width: 200px;
+            }
+
+            #central {
+                background-color: #EBE9EA;
+                border: 1px solid #D2D2D2;
+                border-radius: 8px 8px 8px 8px;
+                float: right;
+                height: auto;
+                margin-bottom: 10px;
+                width: 985px;
+            }
+        </style>                 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    </head>
+    <body>
+        <div class="container-fluid text-center">    
+        <p>Usted tiene una cantidad de 48 puntos para poder llenar el formulario, cuando el puntaje llege a 0 usted ya no podra agregar mas puntos</p>  
+        <p>Este cuestionario ayuda a descubrir su papel y estilo de trabajo en equipo. Para asignarle un papel dentro del equipo</p>  
+        <p> Selecione</p>
+        <ul>
+            <li>2 para indicar Frecuentemente</li>
+            <li>1 para indicar A veces</li>
+            <li>0 para indicar Rara vez</li>
+        </ul>
+        </div>
+        <section id="formulario">
+            <form  name="formularioRellenar"  action="https://script.google.com/macros/s/AKfycbw5En6d6c5T9qJlXI3FWKvjGzkni6OeyBlCqNxMJxqbBMcfceE/exec" method="post" oninput="var suma=0;for(let i =0;i<  pregunta.length;i++){suma += parseInt(pregunta[i].value)};result.value = 48- suma" onsubmit = "return parseInt(result.value) === 0" >
+                <div id="column-left">            
+                    <p> Puntos restantes es  <output name="result">48</output> </p>  
+                </div>
+                <div class="container">                   
+                    <div class="form-group">
+                        <label>Correo</label>
+                        <input type="mail" name="correo"  required> 
+                    </div>      
+                    <div class="form-group">
+                        <label>Grado</label>
+                        <input type="text" required="required"  name="grado" >
+                    </div>
+                    <div class="form-group">
+                        <label>Nombre</label>   
+                        <input type="text" required="required" name="nombre"  >
+                    </div>
+                    <div class="form-group">
+                        <label>1. Estoy dispuesto a hacer un esfuerzo para animar al equipo.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>2. Tiendo a impacientarme con la gente que no \"va al grano\".</label>
+                                <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>3. Insto al grupo a acatar los horarios, mantener los planes y plazos establecidos</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>4. Cuando se presentan diferentes opciones dentro del equipo, fomento la discusión para llegar a consenso.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>5. Se puede contar conmigo a la hora de aportar ideas originales.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>6. Utilizo el humor para aliviar tensiones y mantener buenas relaciones.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>7. Antes de tomar decisiones busco llegar a un consenso.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>8. Escucho atentamente lo que otros dicen.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>9. Evito entrar en conflictos.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>10. Enseguida capto los fallos de las ideas que se exponen.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>11. Comunico abiertamente las razones de una situación.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>12. Siempre estoy dispuesto a apoyar una buena sugerencia por el bien común del equipo.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>13. Tiendo a exponer muchas ideas.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>14. Apoyo a la gente cuando creo que tiene algo que aportar.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>15. Cuando las cosas no progresan adecuadamente, actúo y realizo el trabajo.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>16. Desarrollo las ideas de los demás e intento mejorarlas.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>17. Tiendo a cambiar de idea cuando escucho los puntos de vista de los demás.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>18. Tiendo a buscar la aprobación y el apoyo de los demás.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>19. No me importa ser impopular si cumplo con el trabajo.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>20. Busco activamente las ideas y opiniones de los demás.\</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>21. Soy una persona cordial y me resulta fácil entablar buenas relaciones.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>22. Tengo cuidado en no llegar a conclusiones precipitadas.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>23. Tengo facilidad para conocer cuando algún miembro del equipo está afligido o enfadado.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>24. Disfruto analizando las situaciones y considerando sus alternativas.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>25. Puedo trabajar bien con casi todo el mundo.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>26. Tengo fama de tener un estilo serio.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>27. Me gusta sentir que fomento las buenas relaciones laborales.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>28. Tiendo a ser dinámico y enérgico.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>29. Me gusta anticiparme a las dificultades y estar preparado para afrontarlas.\</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>30. Presiono para que se actúe y me aseguro de que la gente no pierda el tiempo o dé demasiadas vueltas a las cosas.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>31. A la hora de actuar, generalmente consigo que la gente se ponga de acuerdo.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>32. Cuando la gente comienza a dudar, apremio a seguir con la tarea asignada.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>33. Me gusta ponderar las alternativas antes de tomar una decisión.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>34. En lo referente a mis sentimientos, suelo ser abierto.</label>
+                        <select required="required" name="pregunta" >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>35. La gente piensa de mí que, a veces, soy demasiado analítico o cauteloso.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>36. En las discusiones me gusta \"ir siempre al grano\"</label>
+                        <select required="required" name="pregunta" >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>37. Aunque me interesan todos los puntos de vista, no dudo en decidirme cuando hay que tomar una decisión.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>38. La gente que no se toma las cosas en serio tiende a irritarme.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>39. Soy capaz de influir en los demás sin ejercer presión sobre ellos.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>40. Me gusta pensar bien las cosas antes de hacerlas.</label>
+                        <select required="required" name="pregunta"  >
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                        </select>
+                    </div>                      
+                    <div > 
+                        <input onclick="if(parseInt(result.value) !== 0){alert('el puntaje no es igual a 48')} ;" class="btn-success" type="submit" value="Enviar Respuesta" >
+                    </div>  
+                </div> 
+            </form>    
+        </section>     
+    </body>
+</html>
+
